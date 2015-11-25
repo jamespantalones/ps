@@ -1,0 +1,66 @@
+// -------------------------------------------------
+//
+// Mixins
+// 
+// -------------------------------------------------
+// ------------------------------------------------
+// MQ
+//
+$breakpoints: (
+  "extra-small" 300px,
+  "small" 350px,
+  "kinda" 568px,
+  "medium" 700px,
+  "large" 1040px,
+  "extra-large" 1180px,
+  "extra-extra-large" 1200px,
+  "widescreen" 1400px,
+  "huge" 1600px
+);
+
+@mixin mq($size, $type: "min-width") { 
+  @each $breakpoint in $breakpoints {
+    @if ($size == nth($breakpoint, 1)) {
+      @media ($type: nth($breakpoint, 2)) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin fast() {
+  @include transform(translate3d(0,0,0));
+}
+
+@mixin uppercase(){
+    text-transform: uppercase;
+}
+
+// ------------------------------------------------
+// Burst
+//
+@mixin burst($color){
+  background: $color;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  text-align: center;
+  &:before,
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    background: $color;
+  }
+
+  &:before{
+    @include transform(rotate(30deg));
+  }
+  &:after{
+    @include transform(rotate(60deg));
+  }
+}
+
