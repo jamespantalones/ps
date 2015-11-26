@@ -76,8 +76,16 @@ class Piece {
 	onPopClick(item){
 		let self = this;
 
-		let popupContainer = document.getElementById('popup');
+		let popupContainer = document.getElementById('popup-container');
+		let popup = document.getElementById('popup');
 		let popupMessage = document.getElementById('message');
+		let exit = document.getElementById('exit');
+
+
+		function closePop(){
+			popupContainer.classList.remove('active');
+			self.popupOpen = false;
+		}
 
 		if (self.popupOpen === false){
 			
@@ -90,9 +98,13 @@ class Piece {
 
 			self.popupOpen = true;
 
-			popupContainer.onmousedown = function(){
-				self.dragObj = popupContainer;
+			popup.onmousedown = function(){
+				self.dragObj = popup;
 			}
+
+			exit.addEventListener('click', closePop, false);
+
+
 		}
 
 		else{
