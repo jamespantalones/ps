@@ -1,0 +1,92 @@
+.title-canvas{
+	width: auto;
+	height: 600px;
+	height: 85vh;
+	margin: 60px 20px;
+	background: black;
+	color: $darkpink;
+	@include display(flex);
+	@include flex-direction(column);
+	@include align-items(center);
+	@include justify-content(center);
+	position: relative;
+	overflow: hidden;
+	.video-overlay{
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		.hot{
+			position: absolute;
+			top: 0;
+			right: 10px;
+			width: 150px;
+			height: 150px;
+			background: url(../images/hot.svg) no-repeat top center;
+			background-size: contain;
+			@include transform(rotate(20deg));
+		}
+		.stereo{
+			position: absolute;
+			top: 10px;
+			left: 0;
+			width: 150px;
+			height: 150px;
+			background: url(../images/xxx.png) no-repeat left top;
+			background-size: contain;
+		}
+		.xxx{
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			width: 100px;
+			height: 100px;
+			background: url(../images/vhs.gif) no-repeat bottom center;
+			background-size: contain;
+		}
+		.subheadline{
+			position: absolute;
+			bottom: 10px;
+			text-align: center;
+			width: 100%;
+			height: auto;
+			color: $green;
+			font-style: italic;
+			color: white;
+			text-shadow: 3px 3px 2px $darkpink;
+		}
+	}
+	img.title-1{
+		@include transform(rotate(5deg));
+		width: 80%;
+		pointer-events: none;
+	}
+	img.title-2{
+		@include transform(rotate(-2deg));
+		pointer-events: none;
+	}
+	video{
+		position: absolute;
+		top: -50%;
+		left: 0;
+		width: 100%;
+		height: auto;
+
+	}
+	img{
+		z-index: 3;
+		text-align: center;
+	}
+	h1{
+		font-size: 6.5em;
+		padding-left: 10px;
+		width: 50%;
+		text-align: left;
+		z-index: 2;
+		color: $green;
+		text-shadow: 1px 2px 20px $darkpink;
+	}
+}

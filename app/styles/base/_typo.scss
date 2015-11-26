@@ -3,17 +3,22 @@
 // Fonts
 // 
 // -------------------------------------------------
-/* Webfont: FortySecondStreetHB */@font-face {
-    font-family: 'Forty';
-    src: url('../fonts/FortySecondStreetHB.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/FortySecondStreetHB.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/FortySecondStreetHB.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/FortySecondStreetHB.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/FortySecondStreetHB.svg#FortySecondStreetHB') format('svg'); /* Legacy iOS */
+
+
+
+/* Webfont: MyriadPro-LightSemiCnIt */@font-face {
+    font-family: 'MyriadPro';
+    src: url('../fonts/MyriadPro-LightSemiCnIt.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/MyriadPro-LightSemiCnIt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/MyriadPro-LightSemiCnIt.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/MyriadPro-LightSemiCnIt.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/MyriadPro-LightSemiCnIt.svg#MyriadPro-LightSemiCnIt') format('svg'); /* Legacy iOS */
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
 }
+
+
 
 
 
@@ -78,6 +83,10 @@ h1,h2,h3,h4,h5{
 	margin: 0;
 	line-height: 1;
 	padding: 0;
+}
+
+h1{
+	font-family: 'MyriadPro';
 }
 
 p{

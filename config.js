@@ -47,6 +47,11 @@ module.exports = {
         'dest': 'build/icons'
     },
 
+    'data': {
+        'src': 'app/data/*',
+        'dest': 'build/data'
+    },
+
     'src': 'app/',
 
     extras: ['app/robots.txt', 'app/favicon.ico', 'app/icons/*']
