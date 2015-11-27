@@ -42,13 +42,17 @@ class Canvas {
 
 		title.appendChild(self.canvas);
 
-		window.addEventListener('resize', self.onResize, false);
+		window.addEventListener('resize', function(){
+			self.onResize();
+		}, false);
 
 		self.draw();
 	}
 
 
 	onResize(){
+		let self = this;
+
 		self.width = window.innerWidth;
 		self.height = window.innerHeight;
 

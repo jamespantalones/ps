@@ -11,6 +11,7 @@
 	height: auto;
 	position: relative;
 	padding: 5px;
+	cursor: pointer;
 	&.video-right{
 		@include mq("large"){
 			float: right;

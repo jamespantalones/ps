@@ -49,4 +49,6 @@ body{
 	height: 100%;
 	overflow: hidden;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
 }

@@ -81,8 +81,7 @@ nav.main-nav{
     &.headroom--pinned{
         @include transform(translateY(0) translateZ(0));
     }
-    &.headroom--unpinned,
-    &.headroom--top{
+    &.headroom--unpinned{
         @include transform(translateY(-100%) translateZ(0));
     }
 

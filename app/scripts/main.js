@@ -2,8 +2,13 @@
 
 
 const Canvas = require('./components/canvas');
+const social = require('./components/social');
+const Popup = require('./components/popup');
+const Video = require('./components/video');
+const Nav = require('./components/nav');
 
 class Piece {
+	
 	constructor(){
 		this.mov = 'images/cut.mp4';
 		this.width = window.innerWidth;
@@ -11,8 +16,7 @@ class Piece {
 		this.parent = null;
 		this.collage = null;
 
-		this.popupOpen = false;
-		this.dragObj = null;
+		this.currentPop = null;
 
 		this.init();
 	}
@@ -21,101 +25,84 @@ class Piece {
 	init(){
 
 		let self = this;
+
+		let nav = new Nav();
 		
 		// ------------------------------------------------
 		// Add canvas
 		//
-		
 		this.collage = new Canvas();
 
+		
+		// ------------------------------------------------
+		// Bind socials
+		//
+		this.bindSocials();
 
 		// ------------------------------------------------
-		// Bind triggers
+		// Prep vids
 		//
-		this.bindPops();
+		this.bindVideos();
+		
 
 		// ------------------------------------------------
-		// Bind mousemoves
+		// Set up popups
 		//
-		document.onmouseup = function(e){
-			self.dragObj = null;
-		};
-
-		document.onmousemove = function(e){
-			let x = e.pageX;
-			let y = e.pageY;
-
-			if (self.dragObj === null){
-				return;
-			}
-
-			self.dragObj.style.left = (x - 20) + 'px';
-			self.dragObj.style.top = (y - 20) + 'px';
-
-		};
+		this.currentPop = new Popup();
 		
-		
-
 	}
 
-	bindPops(){
-
+	// ------------------------------------------------
+	// Listen for clicks on videos
+	//
+	bindVideos(){
 		let self = this;
+		let videos = document.getElementsByClassName('video-inner');
 
-		let pops = document.getElementsByClassName('pop-ad');
-
-		for (let i = 0; i < pops.length; i++ ){
-			pops[i].addEventListener('click', function(e){
-				e.preventDefault();
-				self.onPopClick(this);
-			}, false);
+		for (let i = 0; i < videos.length; i++ ){
+			videos[i].addEventListener('click', self.playVideo, false);
 		}
 	}
 
 
-	onPopClick(item){
+	// ------------------------------------------------
+	// Instantiate new video
+	//
+	playVideo(){
+		console.log('click');
+		let target = this;
+		let src = target.getAttribute('data-src');
+
+		let video = new Video(target, src);
+	}
+	
+	
+
+
+	// ------------------------------------------------
+	// Listen for clicks on social elements
+	//
+	bindSocials(){
 		let self = this;
+		let socials = document.getElementsByClassName('share-icon');
 
-		let popupContainer = document.getElementById('popup-container');
-		let popup = document.getElementById('popup');
-		let popupMessage = document.getElementById('message');
-		let exit = document.getElementById('exit');
-
-
-		function closePop(){
-			popupContainer.classList.remove('active');
-			self.popupOpen = false;
+		for (let i = 0; i < socials.length; i++ ){
+			socials[i].addEventListener('click', self.share, false);
 		}
-
-		if (self.popupOpen === false){
-			
-			let msg = item.getAttribute('data-msg');
-
-
-			popupMessage.innerHTML = msg;
-
-			popupContainer.classList.add('active');
-
-			self.popupOpen = true;
-
-			popup.onmousedown = function(){
-				self.dragObj = popup;
-			}
-
-			exit.addEventListener('click', closePop, false);
-
-
-		}
-
-		else{
-			self.popupOpen = false;
-			popupContainer.classList.remove('active');
-		}
-
-		
-
-
 	}
+
+
+
+	// ------------------------------------------------
+	// Share to correct platform
+	//
+	share(ev){
+		ev.preventDefault();
+
+		let site = this.getAttribute('data-site');
+		social(site);
+	}
+	
 }
 
 
