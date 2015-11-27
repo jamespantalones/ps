@@ -1,5 +1,10 @@
 'use strict';
 
+// -------------------------------------------------
+//
+// Set up nav + hide and show on scroll
+// 
+// -------------------------------------------------
 
 const Headroom = require('headroom.js');
 
@@ -11,8 +16,8 @@ class Nav {
 
 	init(){
 
+		//set scroll element to be #container instead of default window
 		let scroller = document.getElementById('container');
-
 		Headroom.options.scroller = scroller;
 
 		let header = document.getElementById('nav');

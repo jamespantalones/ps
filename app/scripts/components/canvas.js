@@ -10,6 +10,9 @@ class Canvas {
 		this.width = window.innerWidth;
 		this.height = window.innerHeight;
 
+		this.imgWidth = 270;
+		this.imgHeight = 400;
+
 		this.canvas = null;
 		this.ctx = null;
 
@@ -24,6 +27,20 @@ class Canvas {
 
 
 	init(){
+
+		let self = this;
+
+		if (self.width < 800){
+			self.imgWidth = 168;
+			self.imgHeight = 250
+		}
+
+		else{
+			self.imgWidth = 270;
+			self.imgHeight = 400;
+		}
+
+
 		this.loadImages();
 	}
 
@@ -58,6 +75,17 @@ class Canvas {
 
 		self.canvas.width = self.width;
 		self.canvas.height = self.height;
+
+
+		if (self.width < 800){
+			self.imgWidth = 168;
+			self.imgHeight = 250
+		}
+
+		else{
+			self.imgWidth = 270;
+			self.imgHeight = 400;
+		}
 	}
 
 
@@ -79,7 +107,7 @@ class Canvas {
 
 		//self.ctx.rotate(self.counter * toRadians);
 
-		self.ctx.drawImage(self.loadedImages[Math.floor(Math.random() * self.loadedImages.length)], x, y, 270, 400);
+		self.ctx.drawImage(self.loadedImages[Math.floor(Math.random() * self.loadedImages.length)], x, y, self.imgWidth, self.imgHeight);
 
 
 		requestAnimationFrame(function(){
