@@ -12,7 +12,7 @@
 	@include transition(opacity 0.4s linear);
 	border: 10px solid white;
 	box-shadow: 5px 5px 5px black;
-	opacity: 0.9;
+	opacity: 0.95;
 	&.gone{
 		opacity: 0;
 		pointer-events: none;

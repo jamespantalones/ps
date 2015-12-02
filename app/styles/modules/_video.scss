@@ -4,8 +4,6 @@
 // 
 // -------------------------------------------------
 
-
-
 .video-outer{
 	width: 100%;
 	height: auto;
@@ -75,5 +73,18 @@
 			top: 0;
 			left: 0;
 		}
+	}
+
+	&.video-left{
+		float: left;
+		width: 50%;
+		margin: 50px 50px 50px -25%;
+
+	}
+	&.video-right{
+		float: right;
+		width: 50%;
+		margin: 50px -25% 50px 50px;
+
 	}
 }

@@ -87,6 +87,7 @@
 		font-size: 0.6em;
 		padding: 0 10px;
 		font-family: 'px', serif;
+		@include user-select(none);
 	}
 
 	.button-container{
