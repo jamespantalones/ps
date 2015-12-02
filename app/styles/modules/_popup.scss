@@ -11,6 +11,7 @@
 	height: 100%;
 	z-index: 999;
 	display: none;
+	font-family: Arial;
 	&.active{
 		display: block;
 	}
@@ -35,12 +36,19 @@
 
 	.exit{
 		position: absolute;
-		top: 3px;
-		right: 2px;
-		width: 30px;
-		height: 30px;
-		@include background(url(../images/close-white.svg), linear-gradient(red, #ba0000));
+		top: 5px;
+		right: 5px;
+		width: 26px;
+		height: 26px;
+		background: url(../images/fat-exit.svg) no-repeat center center;
+		background-repeat: no-repeat;
+		background-position: center 3px;
+		background-size: 80%, contain;
+		background-color: red;
 		cursor: pointer;
+		border-radius: 4px;
+		border: 1px solid white;
+		//box-shadow: 1px 1px 1px black;
 	}
 
 	.popup-col{
@@ -48,9 +56,9 @@
 		float: left;
 		background: black;
 		height: 93%;
-		background: url(../images/18.jpg) no-repeat left top;
 		background-repeat: no-repeat !important;
 		background-position: left top !important;
+		background-size: cover !important;
 		overflow: hidden;
 	}
 
@@ -59,12 +67,13 @@
 		content: attr(data-title);
 		color: white;
 		display: block;
-		background: blue;
+		@include background(linear-gradient(blue, #677cff));
 		width: auto;
 		height: 30px;
 		line-height: 30px;
 		padding-left: 5px;
 		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 2px black;
 	}
 	
 	.message{
@@ -72,13 +81,31 @@
 		width: 50%;
 		height: 100%;
 		position: relative;
-		color: red;
-		@include display(flex);
-		@include flex-direction(column);
-		@include align-items(center);
-		@include justify-content(flex-start);
-		margin-top: 20px;
-		font-size: 1.5em;
+		font-family: serif;
+		float: right;
+		margin-top: 50px;
+		font-size: 0.6em;
+		padding: 0 10px;
+		font-family: 'px', serif;
+	}
+
+	.button-container{
+		position: absolute;
+		bottom: 10px;
+		width: 50%;
+		left: 50%;
+		text-align: center;
+		button{
+			margin: 0 10px;
+			width: 60px;
+			font-family: 'px';
+			color: black;
+			font-size: 0.5em;
+			border-radius: 2px;
+			border: 1px solid blue;
+			box-shadow: 0 0 1px black;
+			background: $gray;
+		}
 	}
 
 }

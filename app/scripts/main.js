@@ -16,6 +16,8 @@ class Piece {
 		this.parent = null;
 		this.collage = null;
 
+		this.warning = true;
+
 		this.currentPop = null;
 
 		this.init();
@@ -49,6 +51,18 @@ class Piece {
 		// Set up popups
 		//
 		this.currentPop = new Popup();
+
+		// ------------------------------------------------
+		// Listen for warning click
+		//
+		const warning = document.getElementById('warning');
+		const advance = document.getElementById('advance');
+
+		advance.addEventListener('click', function(){
+			self.warning = false;
+			warning.classList.add('gone');
+		}, false);
+		
 		
 	}
 

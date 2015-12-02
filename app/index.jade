@@ -19,10 +19,31 @@ html(lang="en")
 		
 		//- Fixed pos popup container
 		.popup-container#popup-container
-			.popup-message#popup(data-title="YOYOYOYOYOY")
+			.popup-message#popup
 				.exit#exit
 				.popup-col
 				.message#message
+				.button-container#buttons
+					button YES
+					button NO
+
+		//- Fixed warning container
+		.warning#warning
+			.eighteen
+				h1 18+
+			.adults-only
+				h2 Warning! Adults Only!
+			
+			.eighteen-message
+				h3 NSFW. Explicit Topics For Viewing By Adults 18 Years Of Age Or Older
+
+			div(style="clear:both")
+
+			.final-message
+				h2 You Must Be At Least 18 Years Old To Access This Site
+			
+			.continue
+				button#advance Continue To Site
 
 		
 		//- Main
@@ -55,10 +76,11 @@ html(lang="en")
 					The advent of sound films, however, coincided with a rise in film content censorship, at least in America. The <a href="https://en.wikipedia.org/wiki/Motion_Picture_Production_Code">stultifying Hays Code</a> rendered most erotic films mute for decades, denying anything even vaguely arousing access to big money Hollywood equipment, production, and distribution. Until the early 1960s (and beyond, in the case of gay films), erotic movies were limited to short, silent reels that could be looped at stag parties or passed hand-to-hand for basement and backroom viewing parties.
 
 
-				.pop-ad.black(data-title="HEY SEXY!!!!", data-msg="Looks like you're hard enough already. Click the 'X' to hear about the early days of porno music.")
+				.pop-ad.style1(data-title="HEY SEXY!!!!", data-msg="Looks like you're hard enough already. Click the 'X' to hear about the early days of porno music.")
 					.pop-ad-text
 						h2 Teasing The Porno Groove
-						h4 Keep it going all night long. Click here to find out how!!!
+						h4 Keep it going all night long!
+						button Click Here To Find Out How!!!
 					.pop-ad-image
 						img(src="images/edits/9.jpg")
 
@@ -98,7 +120,9 @@ html(lang="en")
 				p.
 					Deep Throat took another tack, a hardcore movie aiming for soft pop success and oddball whimsy -- and scoring as a pop culture juggernaut that seized the media's attention and broke box office records. Star Linda Lovelace discovers her clitoris is located in her throat: you'd expect a lot of warbling on the soundtrack, but no -- bubblegum pop ("Blowin' Bubbles"), showtune excess ("Deep Throat"), breezy light rock ("La La La") and kooky snippets of dialogue round out what was eventually released as a double album. What made the movie, and the soundtrack, especially famous -- beyond the fact that it was the first real mainstream porn -- was that the FBI seized the masters of both the film and the music in the wake of the many obscenity trials that were to follow the movie's release. The soundtrack is still regarded as a classic; vinyl copies sell for well into the hundreds of dollars.
 
-				.pop-ad.black(data-title="SORRY!!!", data-msg="Looks like all our babes are currently busy. Keep scrolling to learn more about the sexy '70s.")
+				.pop-ad.style2(data-title="SORRY!!!",
+					data-msg="Looks like all our babes are currently busy. Keep scrolling to learn more about the sexy '70s.",
+					data-img="images/bum.gif")
 					.pop-ad-text
 						h2 Slipping Into Porn Chic
 						h4 Hot Babes Are Waiting 4 U. Click here to get online!!!
@@ -141,10 +165,13 @@ html(lang="en")
 				p.
 					"Grant was known as a one-man band in the industry, because he would handle all the instrumentation, playing piano, organ, and synthesizers," Epstein told me. "Of course, for the bigger productions, we would have a full band in here: saxophones, violins, guitars, vocals. He once had me and our neighbors in to sing the chorus on a film called Lesbo A Go-Go and now whenever we see each other, even 20 years later, we can't stop singing 'Lesbo A Go-Go, Lesbo A Go-Go, Lesbo A Go-Go!'"
 
-				.pop-ad.black(data-title="IMPORTANT!!!", data-msg="Looks like you're safe for now! Close this window to keep reading about the porn music of today.")
+				.pop-ad.style3(data-title="IMPORTANT!!!",
+					data-msg="Looks like you're safe for now! Close this window to keep reading about the porn music of today.",
+					data-img="images/bling.gif")
 					.pop-ad-text
 						h2 Ramming It Home
-						h4 Your computer may have a virus. Click here to remove!!!
+						h4 Your computer may have a virus!!!
+						button Click Here To Remove!!!!
 					.pop-ad-image
 						img(src="images/edits/19.jpg")
 

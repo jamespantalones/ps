@@ -57,6 +57,19 @@ class Popup {
 		let exit = document.getElementById('exit');
 		exit.addEventListener('click', self.close.bind(this), false);
 
+		// ------------------------------------------------
+		// Listen for clicks on buttons
+		//
+		let buttonsParent = document.getElementById('buttons');
+		let buttons = buttonsParent.childNodes;
+
+		for (let i = 0; i < buttons.length; i++ ){
+			buttons[i].addEventListener('click', function(){
+				self.close();
+			}, false);
+		}
+		
+
 
 	}
 
@@ -124,17 +137,31 @@ class Popup {
 
 
 
-
 		if (self.popupOpen === false){
 			
 			let msg = item.getAttribute('data-msg');
 			let title = item.getAttribute('data-title');
+			let img = item.getAttribute('data-img');
+			let imgContainer = null;
 
+			for (let i = 0; i < popup.childNodes.length; i++ ){
+				if (popup.childNodes[i].className === 'popup-col'){
+					imgContainer = popup.childNodes[i];
+					break;
+				}
+			}
+
+			//add title to title bar
 			popup.setAttribute('data-title', title);
 
-
+			//add text
 			popupMessage.innerHTML = msg;
 
+			//place image
+			imgContainer.style.background = 'url(' + img + ')';
+			console.log(imgContainer);
+
+			//make sure visible
 			self.container.classList.add('active');
 
 			self.popupOpen = true;
