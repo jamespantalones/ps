@@ -30,9 +30,10 @@ class Canvas {
 
 		let self = this;
 
-		if (self.width < 800){
-			self.imgWidth = 168;
-			self.imgHeight = 250
+
+		if (self.width <= 1024){
+			self.imgWidth = 84;
+			self.imgHeight = 125;
 		}
 
 		else{

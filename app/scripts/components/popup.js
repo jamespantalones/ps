@@ -1,6 +1,6 @@
 'use strict';
 
-
+const Hammer = require('hammerjs');
 
 
 class Popup {
@@ -18,6 +18,7 @@ class Popup {
 		this.container = null;
 		this.dragObj = null;
 		this.popupOpen = false;
+		this.hammertime = null;
 
 		this.init();
 	}
@@ -26,6 +27,8 @@ class Popup {
 	init(){
 
 		let self = this;
+
+		
 
 		//bind all ads to watch for clicks
 		this.activateAds();
@@ -38,24 +41,52 @@ class Popup {
 		// Bind mousemoves
 		//
 		let popup = document.getElementById('popup');
+
+		this.hammertime = new Hammer(popup);
+
+
+		// ------------------------------------------------
+		// Touch events
+		//
+		this.hammertime.on('pan', function(ev){
+			self.onTouchMove(ev);
+		});
+
+		this.hammertime.on('panend', function(ev){
+			self.destroy();
+		});
+		
+		
+		
+
+		// ------------------------------------------------
+		// Mouse events
+		//
+		
 		popup.onmousedown = function(){
 			self.initDrag(this);
 		};
 
-		document.onmouseup = function(e){
+
+		popup.onmouseup = function(e){
 			self.destroy();
 		};
 
-		document.onmousemove = function(e){
+
+		popup.onmousemove = function(e){
 			self.move(e);
 		};
+
 
 		// ------------------------------------------------
 		// Listen for clicks on exit
 		//
 		
 		let exit = document.getElementById('exit');
-		exit.addEventListener('click', self.close.bind(this), false);
+		
+		exit.addEventListener('click', function(e){
+			self.close(e);
+		}, false);
 
 		// ------------------------------------------------
 		// Listen for clicks on buttons
@@ -64,8 +95,8 @@ class Popup {
 		let buttons = buttonsParent.childNodes;
 
 		for (let i = 0; i < buttons.length; i++ ){
-			buttons[i].addEventListener('click', function(){
-				self.close();
+			buttons[i].addEventListener('click', function(e){
+				self.close(e);
 			}, false);
 		}
 		
@@ -84,15 +115,42 @@ class Popup {
 		self.elY = self.yPos - elem.offsetTop;
 	}
 
+	
+
 	// ------------------------------------------------
 	// Called while dragging
 	//
 	move(e){
 		let self = this;
-		self.xPos = document.all ? window.event.clientX : e.pageX;
-		self.yPos = document.all ? window.event.clientY : e.pageY;
+
+		self.xPos = e.clientX;
+		self.yPos = e.clientY;
 
 		if (self.dragObj !== null){
+			self.dragObj.style.left = (self.xPos - self.elX) + 'px';
+			self.dragObj.style.top = (self.yPos - self.elY) + 'px';
+		}
+	}
+
+
+	// ------------------------------------------------
+	// Mobile touch move
+	//
+	onTouchMove(ev){
+		let self = this;
+
+
+
+		self.xPos = ev.center.x;
+		self.yPos = ev.center.y;
+
+		if (self.dragObj === null){
+			self.dragObj = document.getElementById('popup');
+			self.elX = self.xPos - self.dragObj.offsetLeft;
+			self.elY = self.yPos - self.dragObj.offsetTop;
+		}
+
+		else {
 			self.dragObj.style.left = (self.xPos - self.elX) + 'px';
 			self.dragObj.style.top = (self.yPos - self.elY) + 'px';
 		}
@@ -108,8 +166,11 @@ class Popup {
 	}
 
 
-	close(){
+	close(e){
 		let self = this;
+
+		e.stopPropagation();
+
 
 		if (self.container){
 			self.container.classList.remove('active');
@@ -127,8 +188,6 @@ class Popup {
 
 	onPopClick(item){
 		let self = this;
-
-		console.log(self.popupOpen);
 
 		let popup = document.getElementById('popup');
 		let popupMessage = document.getElementById('message');
@@ -159,7 +218,6 @@ class Popup {
 
 			//place image
 			imgContainer.style.background = 'url(' + img + ')';
-			console.log(imgContainer);
 
 			//make sure visible
 			self.container.classList.add('active');

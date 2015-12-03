@@ -23,10 +23,6 @@
 	width: 90%;
 	margin: 50px 5%;
 	color: black;
-	@include mq("medium"){
-		width: 70%;
-		margin: 50px 15%;
-	}
 	@include mq("large"){
 		width: 60%;
 		margin: 50px 20%;
@@ -37,10 +33,18 @@
 	}
 
 	.intro{
-		font-size: 1.75em;
+		font-size: 1.25em;
 		font-family: 'maison';
 		color: $green;
-		text-shadow: 2px 2px 1px $darkpink;
+		text-shadow: 1px 1px 1px black;
+		@include mq("large"){
+			font-size: 1.75em;
+			text-shadow: 2px 2px 1px black;
+		}
+	}
+
+	p{
+		//text-shadow: 1px 1px 100px $green;
 	}
 
 

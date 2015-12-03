@@ -64,16 +64,25 @@
 	}
 	img.title-1{
 		@include transform(rotate(5deg));
-		width: 60%;
+		width: 100%;
 		pointer-events: none;
+		background: rgba(0,0,0,1);
+		@include mq("medium"){
+			background: none;
+		}
 		@include mq("large"){
 			width: 80%;
+			background: none;
 		}
 	}
 	img.title-2{
 		@include transform(rotate(-2deg));
 		pointer-events: none;
-		width: 70%;
+		width: 90%;
+		background: rgba(0,0,0,1);
+		@include mq("medium"){
+			background: none;
+		}
 		@include mq("large"){
 			width: 40%;
 		}
