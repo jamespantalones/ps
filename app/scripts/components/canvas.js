@@ -94,9 +94,15 @@ class Canvas {
 
 		let self = this;
 		let toRadians = Math.PI / 180;
+		let x = 0;
 
+		if (self.width < 1024){
+			x = Math.floor(Math.random() * this.width) - 100;
+		}
 
-		let x = Math.floor(Math.random() * this.width) - 200;
+		else{
+			x = Math.floor(Math.random() * this.width) - 200;
+		}
 
 		if (x < 0){
 			x = 0;

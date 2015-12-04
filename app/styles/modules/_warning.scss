@@ -19,16 +19,20 @@
 	}
 	.eighteen{
 		width: 25%;
-		height: 50%;
+		height: 33%;
 		float: left;
 		border: 3px solid gray;
 		color: white;
-		font-size: 1em;
+		font-size: 0.8em;
 		@include display(flex);
 		@include align-items(center);
 		@include justify-content(center);
+		@include mq("small"){
+			height: 50%;
+		}
 		@include mq("medium"){
 			font-size: 2.5em;
+			height: 50%;
 		}
 		@include mq("large"){
 			font-size: 4em;
@@ -44,17 +48,19 @@
 	.adults-only{
 		width: 73%;
 		float: right;
-		height: 22%;
+		
 		border: 3px solid gray;
 		color: red;
 		font-family: Arial;
-		
+		font-size: 0.31em;
 		@include uppercase();
 		@include display(flex);
 		@include align-items(center);
 		@include justify-content(center);
-		@include mq("medium"){
-			font-size: 1.5em;
+		height: 11%;
+		@include mq("small"){
+			height: 22%;
+			font-size: 1em;
 		}
 		@include mq("large"){
 			font-size: 2em;
@@ -77,6 +83,11 @@
 		@include align-items(center);
 		@include justify-content(center);
 		color: white;
+		height: 19.5%;
+		@include mq("small"){
+			height: 26%;
+			font-size: 1.2em;
+		}
 		@include mq("large"){
 			height: 22%;
 		}
@@ -99,18 +110,21 @@
 	.final-message{
 		width: 100%;
 		border: 3px solid gray;
-		margin-top: 3%;
+		margin-top: 10px;
 		padding: 20px 10px;
 		height: auto;
 		text-align: center;
 		color: red;
 		@include uppercase();
-		font-size: 0.5em;
+		font-size: 0.4em;
+		@include mq("small"){
+			font-size: 0.5em;
+		}
 		@include mq("medium"){
 			font-size: 0.8em;
 		}
 		@include mq("large"){
-			font-size: 1em;
+			font-size: 0.8em;
 			padding: 50px 10px;
 			h2{
 				@include transform(scaleY(1.8));
@@ -121,7 +135,7 @@
 	.continue{
 		margin-top: 5%;
 		@include mq("large"){
-			margin-top: 3%;
+			margin-top: 10px;
 		}
 		a{
 			text-decoration: none;
@@ -134,19 +148,23 @@
 			border: 3px solid gray;
 			background: black;
 			color: white;
-			margin: 10px 0px;
+			
 			height: auto;
-			padding: 10px;
+			
 			@include uppercase();
 			font-weight: bold;
-			font-size: 1em;
+			font-size: 0.75em;
+			padding: 5px;
+			margin: 5px 0px;
 			@include mq("medium"){
 				font-size: 1.25em;
+				margin: 10px 0px;
+				padding: 10px;
 			}
 			@include mq("large"){
-				font-size: 1.5em;
-				width: 50%;
-				margin-left: 25%;
+				font-size: 1em;
+				width: 100%;
+				margin-left: 0%;
 			}
 		}
 	}
