@@ -3,7 +3,7 @@
 module.exports = function(site){
 
     if (site === 'twitter'){
-        var tweet = 'Freestyle: An oral history of the addictive ’80s genre #FreestyleWeek #RBMADaily';
+        var tweet = 'Everything you ever wanted to know about porn soundtracks but were afraid to ask #RBMADaily';
         window.open('https://twitter.com/home?status=' +
             (encodeURIComponent(tweet + ' ' +
             window.location.href)),
